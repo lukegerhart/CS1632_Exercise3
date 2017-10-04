@@ -19,7 +19,7 @@ public class RentACat {
     public boolean returnCat(Cat c) {
 	// TODO
 		if(c._rented==true){
-			c._rented=false;
+			c.returnCat();
 			return true; //successful return 
 		}
 		return false;//Failed Return
@@ -40,7 +40,7 @@ public class RentACat {
     public boolean rentCat(Cat c) {
 	// TODO
 		if(c._rented==false){
-			c._rented=true;
+			c.rentCat();
 			return true; //successful rental 
 		}
 		return false;//Failed Rental
