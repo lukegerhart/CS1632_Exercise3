@@ -35,7 +35,11 @@ public class RentACat {
     
     public boolean rentCat(Cat c) {
 	// TODO
-	return false;
+		if(c._rented==false){
+			c._rented=true;
+			return true; //successful rental 
+		}
+		return false;//Failed Rental
     }
 
 
