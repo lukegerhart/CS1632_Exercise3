@@ -67,7 +67,7 @@ public class RentACat {
 		String cats = "";
 		for (Cat cat : catList) {
 			if (!cat.getRented()) {
-				cats += ("ID " + String.valueOf(cat.getId()) + ". " + cat.getName() + "\n");
+				cats += (cat.toString() + "\n");
 			}
 		}
 		return cats;
