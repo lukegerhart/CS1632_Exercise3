@@ -62,4 +62,24 @@ public class RentACatTest{
 		String correct = "ID 2. cat2Name\nID 3. cat3Name";
 		assertEquals(list, correct);
 	}
+	
+	//test cat exists happy path
+	@Test
+	public void catExistsTest() {
+		ArrayList<Cat> cats = new ArrayList<Cat>();
+		Cat cat1 = Mockito.mock(Cat.class);
+		cat1._id = 1;
+		cat1._name = "cat1Name";
+		Cat cat2 = Mockito.mock(Cat.class);
+		cat2._id = 2;
+		cat2._name = "cat2Name";
+		Cat cat3 = Mockito.mock(Cat.class);
+		cat3._id = 3;
+		cat3._name = "cat3Name";
+		cats.add(cat1);
+		cats.add(cat2);
+		cats.add(cat3);
+		boolean catexists = _l.catExists(1, cats);
+		assertTrue(catexists);
+	}
 }
