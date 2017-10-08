@@ -82,4 +82,18 @@ public class RentACatTest{
 		boolean catexists = _l.catExists(1, cats);
 		assertTrue(catexists);
 	}
+	
+	//test cat exists with null
+	@Test
+	public void catExistsNullTest() {
+		boolean catexists = _l.catExists(1, null);
+		assertFalse(catexists);
+	}
+	
+	//test cat exists with empty list
+	@Test
+	public void catExistsEmptyTest() {
+		boolean catexists = _l.catExists(1, new ArrayList<Cat>());
+		assertFalse(catexists);
+	}
 }
