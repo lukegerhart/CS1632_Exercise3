@@ -58,6 +58,43 @@ public class RentACatTest{
 		assertEquals(list, correct);
 	}
 	
+	//happy path 
+	@Test 
+	public void rentCatTest(){
+		Cat cat = Mockito.mock(Cat.class);
+		Mockito.when(cat.getRented()).thenReturn(false);
+		boolean b=_l.rentCat(cat);
+		assertEquals(b,true);
+	}
+	
+	//rent previously rented cat
+	@Test
+	public void rentCatNotThereTest(){
+		Cat cat = Mockito.mock(Cat.class);
+		//cat._rented=true;//make cat already rented
+		Mockito.when(cat.getRented()).thenReturn(true);
+		boolean b=_l.rentCat(cat);
+		assertEquals(b,false);
+	}
+	
+	//return a rented cat
+	@Test 
+	public void returnCatTest(){
+		Cat cat = Mockito.mock(Cat.class);
+		Mockito.when(cat.getRented()).thenReturn(true);
+		boolean b=_l.returnCat(cat);
+		assertEquals(b,true);
+	}
+	
+	//return cat that is not rented
+	@Test 
+	public void returnCatStillThereTest(){
+		Cat cat = Mockito.mock(Cat.class);
+		Mockito.when(cat.getRented()).thenReturn(false);
+		boolean b=_l.returnCat(cat);
+		assertEquals(b,true);
+	}
+	
 	//test cat exists happy path
 	@Test
 	public void catExistsTest() {
