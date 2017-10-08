@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public Class RentACatTest{
+public class RentACatTest{
 // Re-usable RentACat reference.
     RentACat _l;
 
@@ -18,4 +18,10 @@ public Class RentACatTest{
     public void testRentACatExists() {
 	assertNotNull(_l);
     }
+	
+	@Test
+	public void testRentCat{
+		Cat c= Mockito.mock(Cat.class);
+		Mockito.when(c.rentCat(Cat c)).thenReturn("");
+	}
 }
