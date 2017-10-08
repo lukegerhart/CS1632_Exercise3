@@ -24,20 +24,13 @@ public class RentACatTest{
 	@Test
 	public void listCatsTest() {
 		ArrayList<Cat> cats = new ArrayList<Cat>();
-		Cat cat1 = Mockito.mock(Cat.class);
-		cat1._id = 1;
-		cat1._name = "cat1Name";
-		Cat cat2 = Mockito.mock(Cat.class);
-		cat2._id = 2;
-		cat2._name = "cat2Name";
-		Cat cat3 = Mockito.mock(Cat.class);
-		cat3._id = 3;
-		cat3._name = "cat3Name";
-		cats.add(cat1);
-		cats.add(cat2);
-		cats.add(cat3);
+		for (int i = 1; i < 4; i++) {
+			Cat cat = Mockito.mock(Cat.class);
+			Mockito.when(cat.toString()).thenReturn("ID " + i + ". " + "catName" + i);
+			cats.add(cat);
+		}
 		String list = _l.listCats(cats);
-		String correct = "ID 1. cat1Name\nID 2. cat2Name\nID 3. cat3Name";
+		String correct = "ID 1. catName1\nID 2. catName2\nID 3. catName3\n";
 		assertEquals(list, correct);
 	}
 	
@@ -45,21 +38,17 @@ public class RentACatTest{
 	@Test
 	public void listCatsRentedTest() {
 		ArrayList<Cat> cats = new ArrayList<Cat>();
-		Cat cat1 = Mockito.mock(Cat.class);
-		cat1._id = 1;
-		cat1._name = "cat1Name";
-		cat1._rented = true;
-		Cat cat2 = Mockito.mock(Cat.class);
-		cat2._id = 2;
-		cat2._name = "cat2Name";
-		Cat cat3 = Mockito.mock(Cat.class);
-		cat3._id = 3;
-		cat3._name = "cat3Name";
-		cats.add(cat1);
-		cats.add(cat2);
-		cats.add(cat3);
+		for (int i = 1; i < 4; i++) {
+			Cat cat = Mockito.mock(Cat.class);
+			if (i == 1) {
+				//stub getrented
+				Mockito.when(cat.getRented()).thenReturn(true);
+			}
+			Mockito.when(cat.toString()).thenReturn("ID " + i + ". " + "catName" + i);
+			cats.add(cat);
+		}
 		String list = _l.listCats(cats);
-		String correct = "ID 2. cat2Name\nID 3. cat3Name";
+		String correct = "ID 2. catName2\nID 3. catName3\n";
 		assertEquals(list, correct);
 	}
 	
@@ -67,18 +56,11 @@ public class RentACatTest{
 	@Test
 	public void catExistsTest() {
 		ArrayList<Cat> cats = new ArrayList<Cat>();
-		Cat cat1 = Mockito.mock(Cat.class);
-		cat1._id = 1;
-		cat1._name = "cat1Name";
-		Cat cat2 = Mockito.mock(Cat.class);
-		cat2._id = 2;
-		cat2._name = "cat2Name";
-		Cat cat3 = Mockito.mock(Cat.class);
-		cat3._id = 3;
-		cat3._name = "cat3Name";
-		cats.add(cat1);
-		cats.add(cat2);
-		cats.add(cat3);
+		for (int i = 1; i < 4; i++) {
+			Cat cat = Mockito.mock(Cat.class);
+			Mockito.when(cat.getId()).thenReturn(i);
+			cats.add(cat);
+		}
 		boolean catexists = _l.catExists(1, cats);
 		assertTrue(catexists);
 	}
