@@ -20,12 +20,6 @@ public class RentACatTest{
 		assertNotNull(_l);
     }
 	
-<<<<<<< HEAD
-	@Test
-	public void testRentCat{
-		Cat c= Mockito.mock(Cat.class);
-		Mockito.when(c.rentCat(Cat c)).thenReturn("");
-=======
 	//test happy path
 	@Test
 	public void listCatsTest() {
