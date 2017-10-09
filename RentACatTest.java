@@ -86,7 +86,7 @@ public class RentACatTest{
 		Cat cat = Mockito.mock(Cat.class);
 		Mockito.when(cat.getRented()).thenReturn(false);
 		boolean b=_l.returnCat(cat);
-		assertEquals(b,true);
+		assertEquals(b,false);
 	}
 	
 	//test cat exists happy path
